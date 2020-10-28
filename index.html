@@ -11,14 +11,26 @@
         <h1>{{titulo}}</h1>
         <button class="btn btn-primary" v-on:click="consultarCuentas">Consultar Cuentas</button>
         <hr>
-        <div v-for="p in listCuentas">
-            <h4>NUMERO CUENTA CORRIENTE: {{p.NroCuentaCorriente}}</h3>
-            <h4>RAZON SOCIAL: {{p.RazonSocial}}</h3>
-            <h4>CUIT: {{p.Cuit}}</h4>
-            <h4>SALDO: {{p.Saldo}}</h4>
-            <h4>EMAIL: {{p.Email}}</h4>
-            <hr>
-        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nro cuenta Corriente</th>
+                <th scope="col">Razon Social</th>
+                <th scope="col">Cuit</th>
+                <th scope="col">Saldo</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody v-for="p in listCuentas">
+              <tr>
+                <th scope="row">{{p.NroCuentaCorriente}}</th>
+                <td>{{p.Proveedor.RazonSocial}}</td>
+                <td>{{p.Proveedor.Cuit}}</td>
+                <td>{{p.Saldo}}</td>
+                <td>{{p.Proveedor.Email}}</td>
+              </tr>
+            <tbody>
+        </table>        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
